@@ -11,6 +11,16 @@ router.get('/foods', (request, response) => {
   })
 })
 
+//get food by name
+router.get('/foods/:name', (request, response) => {
+  Food.find({'name': request.params.name})
+  .then( food => response.json(food))
+  .catch( error => {
+    console.error(error)
+    response.sendStatus(400)
+  })
+})
+
 //post a food
 router.post('/foods', (request, response) => {
   Food.create(request.body)

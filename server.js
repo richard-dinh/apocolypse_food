@@ -24,10 +24,11 @@ app.use(passport.session())
 
 //passport usage for local authentication
 passport.use(new LocalStrategy(Villager.authenticate()))
+//for encryption (decrypting a user info and then encrypting it)
 passport.serializeUser(Villager.serializeUser())
 passport.deserializeUser(Villager.deserializeUser())
 
-//passport usage for jwt authentication
+//lets us lock routes. Locked routes will require a Bearer token and this function checks if that exists, if it does, the locked route will run and also return to us the user info
 passport.use(new JWTStrategy({
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: process.env.SECRET
