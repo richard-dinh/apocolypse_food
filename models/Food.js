@@ -6,4 +6,5 @@ module.exports = model('food', new Schema({
     type: String,
     require: true
   }
+  //consider adding a count later in the event supplies run out
 }))
