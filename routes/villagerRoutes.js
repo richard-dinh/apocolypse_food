@@ -1,5 +1,6 @@
 const router = require('express').Router()
-const {Villager} = require('../models')
+//bring in Foods and Villager model
+const {Villager, Food} = require('../models')
 //bring in jwt for token generation
 const jwt = require('jsonwebtoken')
 //bring in passport to lock routes
@@ -62,9 +63,33 @@ router.post('/villagers', (request, response) => {
 
 
 //route for letting villager add items to their foods list. Authenticates if jwt is valid, if so, then it runs the route
-router.put('/villagers/:id', (request, response) =>{
-  Villager.findByIdAndUpdate(request.params.id, {$push : {foods : request.body}})
-  .then( () => response.sendStatus(200))
+router.put('/villagers/foods', passport.authenticate('jwt'),  (request, response) =>{
+  Food.findOne({'name': request.body.name})
+  .then( food => {
+    Villager.findByIdAndUpdate(request.user._id, { $push: { foods: food._id } })
+    .then( () => response.sendStatus(200))
+    .catch( error => {
+      console.error(error)
+      response.sendStatus(400)
+    })
+  })
+  .catch( error => {
+    console.error(error)
+    response.sendStatus(400)
+  })
+})
+
+//delete item from list
+router.delete('/villagers/:name', passport.authenticate('jwt'), (request, response) => {
+  Food.findOne({'name': request.params.name})
+  .then( food => {
+    Villager.findByIdAndUpdate(request.user._id, {$pull : {foods: food._id}})
+    .then( () => response.sendStatus(200))
+    .catch( error => {
+      console.error(error)
+      response.sendStatus(400)
+    })
+  })
   .catch( error => {
     console.error(error)
     response.sendStatus(400)
