@@ -1,7 +1,7 @@
 const {model, Schema} = require('mongoose')
 
 const villagerSchema = new Schema({
-  name: {
+  username: {
     type: String,
     required: true
   },
