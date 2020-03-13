@@ -12,5 +12,6 @@ const villagerSchema = new Schema({
 })
 
 //add plugin for user authentication
+villagerSchema.plugin(require('passport-local-mongoose'))
 
 module.exports = model('villager', villagerSchema)
