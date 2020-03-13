@@ -1,5 +1,5 @@
 
 module.exports = {
-  Item: require('./Item.js'),
+  Food: require('./Food.js'),
   Villager: require('./Villager')
 }

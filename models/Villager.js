@@ -5,9 +5,9 @@ const villagerSchema = new Schema({
     type: String,
     required: true
   },
-  items:[{
+  foods:[{
     type: Schema.Types.ObjectId,
-    ref: 'item'
+    ref: 'food'
   }]
 })
 
