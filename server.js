@@ -39,6 +39,15 @@ passport.use(new JWTStrategy({
 //bring in routes
 app.use(require('./routes'))
 
+
+//route for homepage
+app.get('/', (request, response) => {
+  response.sendFile(join(__dirname, 'public', 'index.html'))
+})
+
+app.get('/foodMarket', (request, response) => {
+  response.sendFile(__dirname, 'public', 'food.html')
+})
 require('./config')
   .then( () => app.listen(process.env.PORT || 3000))
   .catch( error => console.error(error))
