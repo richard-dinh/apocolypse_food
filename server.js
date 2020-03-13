@@ -46,7 +46,7 @@ app.get('/', (request, response) => {
 })
 
 app.get('/foodMarket', (request, response) => {
-  response.sendFile(__dirname, 'public', 'food.html')
+  response.sendFile(join(__dirname, 'public', 'food.html'))
 })
 require('./config')
   .then( () => app.listen(process.env.PORT || 3000))

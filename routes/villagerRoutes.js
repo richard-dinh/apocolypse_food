@@ -36,6 +36,7 @@ router.post('/villagers/login', (request, response) => {
       isLoggedIn: !!villager,
       foods: villager.foods,
       villager: villager.username,
+      id: villager._id,
       token: jwt.sign({id: villager._id}, process.env.SECRET)
     })
   })

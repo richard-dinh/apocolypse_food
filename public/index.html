@@ -22,36 +22,163 @@
       .btn2{
           margin-left: 45px;
       }
+      .errorStyle{
+        color: red;
+      }
+      .loginStyle{
+        display: block;
+      }
+      .foodStyle{
+        display:none;
+      }
       </style>
      
 </head>
 <body>
-
-    <div class="container-md mx-auto mt-5"    style="width: 400px;">
-        <center>
-            <div id="container">
-                <img src="./images/apocalypse.jpg" class="image">
-            </div>
-    
-            <br><br>
-    
-        <span class="border border-white"></span>
+<div id = "loginPage" class = "loginStyle">
+  <div class="container-md mx-auto mt-5"    style="width: 400px;">
+      <center>
+          <div id="container">
+              <img src="./images/apocalypse.jpg" class="image">
+          </div>
+  
+          <br><br>
+  
+      <span class="border border-white"></span>
 <h1 id="h1"> Apocalypse Food</h1>
 <hr></hr>
-    <form>
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="email" class="form-control" id="username" aria-describedby="emailHelp">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password">
-        </div>
-        <button type="submit" class="btn btn-primary " id = "submit">Submit</button>
-        <button type="register" class="btn btn2 btn-primary" id = "register">Register</button>
-
-      </form>
+  <form>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
       </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password">
+      </div>
+      <button type="submit" class="btn btn-primary " id = "signIn">Sign In</button>
+      <button type="register" class="btn btn2 btn-primary" id = "register">Register</button>
+      <div id = "errorMessage" class = "errorStyle"></div>
+      <div id = "message"></div>
+    </form>
+    </div>
+</div>
+<div id ="foodMarket" class="foodStyle"> 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <button class="btn">
+          <h3>Villager</h3>
+        </button>
+        <div class="row justify-content-center">
+          <!-- <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Cofee</h5>
+            <img class="card-img-top" src="./images/drink/cafee.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Friut Juice</h5>
+            <img class="card-img-top" src="./images/drink/FruitJuices.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Soda</h5>
+            <img class="card-img-top" src="./images/drink/soda.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Sparkling</h5>
+            <img class="card-img-top" src="./images/drink/sparkling.jpeg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Tea</h5>
+            <img class="card-img-top" src="./images/drink/tea.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Water</h5>
+            <img class="card-img-top" src="./images/drink/water.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div> -->
+        </div>
+        <button class="btn">
+          <h3>Vegetable and Friut</h3>
+        </button>
+        <div class="row justify-content-center">
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Banana</h5>
+            <img class="card-img-top" src="./images/vegetable/banana.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Broccoli</h5>
+            <img class="card-img-top" src="./images/vegetable/broccoli.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Cucumber</h5>
+            <img class="card-img-top" src="./images/vegetable/cucumber.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Eggplant</h5>
+            <img class="card-img-top" src="./images/vegetable/eggplant.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Green Bean</h5>
+            <img class="card-img-top" src="./images/vegetable/Greenbean.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+  
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Lemon</h5>
+            <img class="card-img-top" src="./images/vegetable/lemon.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Lettuce</h5>
+            <img class="card-img-top" src="./images/vegetable/lettuce.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Orange</h5>
+            <img class="card-img-top" src="./images/vegetable/orange.jpeg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Potatos</h5>
+            <img class="card-img-top" src="./images/vegetable/Potatos.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Lemon</h5>
+            <img class="card-img-top" src="./images/vegetable/lemon.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Potatos</h5>
+            <img class="card-img-top" src="./images/vegetable/Potatos.jpg" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+          <div class="card" style="width: 16rem;">
+            <h5 class="card-title">Tometo</h5>
+            <img class="card-img-top" src="./images/vegetable/tomato.png" alt="Card image cap">
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3>Your Cart</h3>
+        <ul id="list" class="list-group">
+          <li class="list-group-item">No items to display. Not signed in yet.</li>
+        </ul>
+  
+      </div>
+    </div>
+  </div>
+</div>
     <script src = "./app.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
